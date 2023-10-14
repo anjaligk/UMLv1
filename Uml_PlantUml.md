@@ -12,3 +12,4 @@ Diagrams in UML can be broadly classified as:
 
 ![Alt text](Uml_types-1.png)
 
+to check 2 nd push
