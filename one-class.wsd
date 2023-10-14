@@ -1,0 +1,46 @@
+@startuml
+
+class ShoppingCart {
+  - items: List<Product>
+  + addItem(product: Product): void
+  + removeItem(product: Product): void
+  + checkout(): Order
+}
+
+class Order {
+  - orderNumber: string
+  - orderDate: Date
+  - status: string
+  - shippingAddress: string
+  - items: List<OrderItem>
+  + addProduct(product: Product, quantity: int): void
+  + calculateTotal(): double
+  + shipOrder(): void
+}
+
+class Customer {
+  - customerId: string
+  - name: string
+  - email: string
+  + placeOrder(cart: ShoppingCart): Order
+}
+
+class Product {
+  - productId: string
+  - name: string
+  - price: double
+  + displayInfo(): string
+}
+
+class OrderItem {
+  - product: Product
+  - quantity: int
+}
+
+ShoppingCart "1" - "0..*" Product : contains
+Customer "1" - "0..*" Order : places
+Order "1" - "0..*" OrderItem : includes
+OrderItem "1" -- "1" Product : has
+Customer --|> Person : is a
+
+@enduml
