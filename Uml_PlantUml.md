@@ -10,6 +10,6 @@ Diagrams in UML can be broadly classified as:
 **Structural Diagrams:**  Captures static aspects or structure of a system. Structural Diagrams include: Component Diagrams, Object Diagrams, Class Diagrams and Deployment Diagrams.
 **Behavior Diagrams:**  Captures dynamic aspects or behavior of the system. Behavior diagrams include: Use Case Diagrams, State Diagrams, Activity Diagrams and Interaction Diagrams.
 
-![Alt text](Uml_types-1.png)
+![Alt text](Uml_types.png)
 
 to check 2 nd push
