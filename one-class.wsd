@@ -1,3 +1,40 @@
+' Basic Objects
+@startuml
+abstract        abstract
+abstract class  "abstract class name"
+circle          circle
+()              circle_short_form
+class           classname
+diamond         diamond
+<>              diamond_short_form
+@enduml
+
+'Basic Relations
+@startuml
+Class01 <|-- Class02    /'inheritance'/
+Class03 *-- Class04     /'Composition'/
+Class05 o-- Class06     /'Aggregation'/
+Class07 <.. Class08     /'Dependency'/
+Class09 -- Class10      /'Association'/
+@enduml
+
+'Labels on Relations
+@startuml
+Class11 o-- Class12 : aggregation        /'label on relation'/
+Class13 "1" *-- "many" class14 : contains       /'Multiplicity or cardinality'/
+@enduml
+
+'Basic class structure
+@startuml
+class className {
+ -field1
+ #field2
+ ~method1()
+ +method2()
+}
+@enduml
+
+'Simple example
 @startuml
 
 class ShoppingCart {
@@ -25,22 +62,14 @@ class Customer {
   + placeOrder(cart: ShoppingCart): Order
 }
 
-class Product {
-  - productId: string
-  - name: string
-  - price: double
-  + displayInfo(): string
-}
-
 class OrderItem {
   - product: Product
   - quantity: int
 }
 
-ShoppingCart "1" - "0..*" Product : contains
-Customer "1" - "0..*" Order : places
-Order "1" - "0..*" OrderItem : includes
-OrderItem "1" -- "1" Product : has
+Customer "1" - "0..*" ShoppingCart : has
+Customer "1" *-- "0..*" Order : places
+Order "1" *-- "0..*" OrderItem : includes
 Customer --|> Person : is a
-
 @enduml
+
